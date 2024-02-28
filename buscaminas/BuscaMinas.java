@@ -7,6 +7,12 @@ public class BuscaMinas {
     private boolean[][] casillasDescubiertas;
     private int minas;
 
+    /**
+     * Constructor de la clase BuscaMinas que inicializa el tablero y coloca las minas aleatoriamente
+     * @param filas
+     * @param columnas
+     * @param minas
+     */
     public BuscaMinas(int filas, int columnas, int minas) {
         this.tablero = new int[filas][columnas];
         this.casillasDescubiertas = new boolean[filas][columnas];
@@ -15,6 +21,9 @@ public class BuscaMinas {
         colocarMinasAleatorias();
     }
 
+    /**
+     * Método para colocar las minas aleatoriamente en el tablero
+     */
     private void colocarMinasAleatorias() {
         Random random = new Random();
         int minasColocadas = 0;
@@ -30,6 +39,12 @@ public class BuscaMinas {
         }
     }
 
+    /**
+     * Método para descubrir una casilla y comprobar si hay mina
+     * @param fila
+     * @param columna
+     * @return
+     */
     public boolean descubrirCasilla(int fila, int columna) {
         if (casillasDescubiertas[fila][columna]) {
             return false;
@@ -66,7 +81,11 @@ public class BuscaMinas {
     
         return false;
     }
-
+    
+    /**
+     * Método para comprobar si el jugador ha ganado
+     * @return
+     */
     public boolean hasGanado() {
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero[0].length; j++) {
@@ -78,6 +97,10 @@ public class BuscaMinas {
         return true;
     }
 
+    /**
+     * Método para obtener el estado del tablero y pintar los números con sus colores correspondientes
+     * @return
+     */
     public String obtenerEstadoTablero() {
         StringBuilder sb = new StringBuilder();
     
@@ -108,6 +131,10 @@ public class BuscaMinas {
         return sb.toString();
     }
 
+    /**
+     * Método para comprobar si el juego ha terminado
+     * @return
+     */
     public boolean juegoTerminado() {
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero[0].length; j++) {

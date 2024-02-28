@@ -7,6 +7,7 @@ public class Interface {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        //Introducir el ancho, alto del tablero este no puede ser menor a 3 y el número de minas que no puede ser igual o mayor al ancho*alto
         int ancho;
         do {
             System.out.println("Introduce el ancho del tablero (debe ser mayor o igual a 3):");
@@ -41,6 +42,7 @@ public class Interface {
         BuscaMinas juego = new BuscaMinas(ancho, alto, numMinas);
         scanner.nextLine();
 
+        //Ejecución del juego
         while (true) {
             System.out.println("Estado actual del tablero:");
 
